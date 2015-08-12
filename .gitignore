@@ -1,4 +1,7 @@
 /bootstrap/compiled.php
+/app/config/database.php
+/vendor
 .env.*.php
 .env.php
 .env
+.DS_Store
