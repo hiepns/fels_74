@@ -15,8 +15,8 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.show', [Auth::user()->id]) }}">Profile</a></li>
-                        <li><a href="{{ route('user.edit', [Auth::user()->id]) }}">Edit Profile</a></li>
+                        <li><a href="{{ route('users.show', [Auth::user()->id]) }}">Profile</a></li>
+                        <li><a href="{{ route('users.edit', [Auth::user()->id]) }}">Edit Profile</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ url('/logout')  }}">Logout</a></li>
                     </ul>
