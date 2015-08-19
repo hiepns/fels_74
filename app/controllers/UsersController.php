@@ -15,22 +15,23 @@ class UsersController extends \BaseController {
 
     public function store()
     {
-        $valid = Validator::make(Input::all(), User::$validates);
+        $valid = Validator::make(Input::all(), User::createValidator());
 
         if ($valid->passes()) {
             $user = new User();
             $user->username = Input::get('username');
             $user->email = Input::get('email');
+            $user->avatar = Input::get('avatar');
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
             return Redirect::to('/')
                 ->with('alert-success', 'Signup successfully!');
-        } else {
-            return Redirect::route('users.create')
-                ->withErrors($valid)
-                ->withInput();
-        }
+        } 
+        
+        return Redirect::route('users.create')
+            ->withErrors($valid)
+            ->withInput();
     }
 
     public function show($id)
@@ -53,6 +54,26 @@ class UsersController extends \BaseController {
 
     public function update($id)
     {
-        
+        $user = User::findOrFail($id);
+
+        $isSameEmail = ($user->email == Input::get('email')) ? true : false;
+        $valid = Validator::make(Input::all(), User::createValidator($isSameEmail));
+
+        if ($valid->passes()) {
+            $newUserData = [
+                'username' => Input::get('username'),
+                'email' => Input::get('email'),
+                'avatar' => Input::get('avatar'),
+                'password' => Hash::make(Input::get('password'))
+            ];
+            $user->update($newUserData);
+
+            return Redirect::route('users.show', $id)
+                ->with('alert-success', 'Update profile successfully!');
+        } 
+
+        return Redirect::route('users.edit', $id)
+            ->withErrors($valid)
+            ->withInput();  
     }
 }

@@ -10,10 +10,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     use UserTrait, RemindableTrait;
 
     protected $table = 'users';
-
     protected $hidden = array('password', 'remember_token');
+    protected $fillable = array('username', 'email', 'password');
 
-    public static $validates = [
+    protected static $validates = [
         'username' => 'required',
         'email'  => 'required|email|unique:users',
         'password' => 'required|min:6|confirmed',
@@ -25,4 +25,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Lesson');
     }
 
+    public static function createValidator($isSameEmail = false)
+    {
+        if ($isSameEmail) {
+            self::$validates['email'] = 'required|email';
+        } 
+
+        return self::$validates;
+    }
 }
