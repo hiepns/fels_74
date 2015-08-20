@@ -24,12 +24,12 @@ body {
     padding-top: 60px;
 }
 
-section {
-    overflow: auto;
-}
-
 textarea {
     resize: vertical;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .center {
@@ -139,30 +139,24 @@ input {
 
 /* sidebar */
 
-aside {
-    section.user_info {
-        margin-top: 20px;
-    }
-    section {
-        padding: 10px 0;
-        margin-top: 20px;
-        &:first-child {
-            border: 0;
-            padding-top: 0;
-        }
-        span {
-            display: block;
-            margin-bottom: 3px;
-            line-height: 1;
-        }
-        h1 {
-            font-size: 1.4em;
-            text-align: left;
-            letter-spacing: -1px;
-            margin-bottom: 3px;
-            margin-top: 0px;
-        }
-    }
+.user_info {
+    margin-top: 20px;
+}
+
+.user_info h1 {
+    font-size: 2.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+}
+
+.gravatar {
+    float: left;
+    margin-right: 10px;
+    width: 160px;
+    height: 160px;
+    border: 4px solid #53BCE2;
+    border-radius: 2px;
 }
 
 .users {
@@ -227,4 +221,8 @@ aside {
 
 .btn {
     width: 200px;
+}
+
+.home_btn {
+    margin-top: 20px;
 }
