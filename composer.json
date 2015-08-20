@@ -6,7 +6,12 @@
     "require": {
         "laravel/framework": "4.2.*",
         "twitter/bootstrap": "dev-master",
-        "doctrine/dbal": "v2.4.2"
+        "doctrine/dbal": "v2.4.2",
+        "sleeping-owl/admin": "1.x"
+    },
+    "require-dev": {
+        "way/generators": "~2.0",
+        "fzaninotto/faker": "^1.5"
     },
     "autoload": {
         "classmap": [
