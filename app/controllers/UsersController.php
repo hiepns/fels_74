@@ -22,6 +22,9 @@ class UsersController extends \BaseController {
             $user->username = Input::get('username');
             $user->email = Input::get('email');
             $user->avatar = Input::get('avatar');
+            if (empty(Input::get('avatar'))) {
+                $user->avatar = 'https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg';
+            }
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
