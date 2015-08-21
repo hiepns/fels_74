@@ -3,13 +3,13 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveAdminCollumn extends Migration {
+class AddTotalColumn extends Migration {
 
     public function up()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('categories', function(Blueprint $table)
         {
-            $table->dropColumn('admin');
+            $table->integer('total');
         });
     }
 
