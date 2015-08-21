@@ -17,7 +17,7 @@ class RenameCategoriesColumn extends Migration {
     {
         Schema::table('categories', function(Blueprint $table) {
             $table->renameColumn('name', 'category_name');
-            $table->renameColumn('icon', 'category_name');
+            $table->renameColumn('icon', 'category_icon');
         });
     }
 

@@ -28,7 +28,7 @@ class UsersController extends \BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
-            return Redirect::to('/')
+            return Redirect::to('/login')
                 ->with('alert-success', 'Signup successfully!');
         } 
         
