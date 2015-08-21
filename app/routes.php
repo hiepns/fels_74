@@ -8,3 +8,4 @@ Route::post('/login', ['before' => 'csrf', 'uses' => 'SessionsController@store']
 Route::get('/logout', ['before' => 'auth', 'uses' => 'SessionsController@destroy']);
 
 Route::resource('users', 'UsersController');
+Route::resource('relationships', 'RelationshipsController');
