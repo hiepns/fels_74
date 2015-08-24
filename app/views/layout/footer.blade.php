@@ -5,4 +5,5 @@
             <li><a href="{{ url('/about') }}">About</a></li>
         </ul>
     </nav>
+    {{ HTML::script('/js/relationship.js') }}
 </footer>

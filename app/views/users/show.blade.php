@@ -2,16 +2,34 @@
 @section('content')
 
 <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-5">
         <section class="user_info">
             <h1>
-                {{ HTML::image(Auth::user()->avatar, Auth::user()->username, ['class' => 'gravatar']) }}
-                <a href="{{ route('users.show', [Auth::user()->id]) }}">{{ Auth::user()->username }}</a>
+                {{ HTML::image($user->getAvatar(), $user->username, ['class' => 'gravatar']) }}
+                {{ $user->username }}
             </h1>
+
+            @include('users.follow_form')
+        </section>
+
+        <section class="stats">
+            <a>
+                <strong id="following">
+                    {{ count($user->followings()->lists('follower_id')) }}
+                </strong>
+                followings
+            </a>
+            
+            <a>
+                <strong id="followers">
+                    {{ count($user->followers()->lists('followed_id')) }}
+                </strong>
+                followers
+            </a>
         </section>
     </aside>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
         <h3>Activities</h3>
     </div>
 </div>
