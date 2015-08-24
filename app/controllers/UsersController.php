@@ -38,9 +38,7 @@ class UsersController extends \BaseController {
     {
         $user = User::findOrFail($id);
 
-        return View::make('users.show')
-            ->with('title', 'Profile')
-            ->with('user', $user);
+        return View::make('users.show', ['title' => $user->username, 'user' => $user]);
     }
 
     public function edit($id)
