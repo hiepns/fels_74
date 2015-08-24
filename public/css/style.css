@@ -15,7 +15,6 @@ input {
     height: auto !important;
 }
 
-
 html {
     overflow-y: scroll;
 }
@@ -157,7 +156,7 @@ aside section h1 {
     font-size: 1.8em;
     text-align: left;
     letter-spacing: -1px;
-    margin-bottom: 3px;
+    margin-bottom: 15px;
     margin-top: 0px;
 }
 
@@ -211,11 +210,18 @@ aside span {
 .users {
     list-style: none;
     margin: 0;
-    li {
-        overflow: auto;
-        padding: 10px 0;
-        border-bottom: 1px solid $gray-lighter;
-    }
+}
+
+.users li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.users li img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
 }
 
 .mean-field {
@@ -279,13 +285,6 @@ aside span {
 #follow {
     background-color: #57A957;
     color:#fff;
-    margin-top: -100px;
-    margin-left: 175px;
-}
-
-#remove {
-    margin-top: -100px;
-    margin-left: 175px;
 }
 
 #follow:hover {

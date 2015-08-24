@@ -9,3 +9,5 @@ Route::get('/logout', ['before' => 'auth', 'uses' => 'SessionsController@destroy
 
 Route::resource('users', 'UsersController');
 Route::resource('relationships', 'RelationshipsController');
+Route::resource('users.followings', 'FollowingsController');
+Route::resource('users.followers', 'FollowersController');
