@@ -1,7 +1,7 @@
 <aside class='col-md-5'>
     <div class='row'>
-        <section class='col-md-5'> 
-            {{ HTML::image($user->getAvatar(), $user->username, ['class' => 'gravatar']) }}
+        <section class='col-md-5'>
+            {{ HTML::image($user->avatar->url('medium'), $user->username, ['class' => 'gravatar']) }}
         </section>
         <section class='col-md-7 user_info'>
             <h1>
@@ -21,7 +21,7 @@
             </strong>
             followings
         </a>
-        
+
         <a href='{{ route('users.followers.index', $user->id) }}'>
             <strong id='followers'>
                 {{ $user->followers->count() }}

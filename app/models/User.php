@@ -4,14 +4,17 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Codesleeve\Stapler\ORM\StaplerableInterface;
+use Codesleeve\Stapler\ORM\EloquentTrait;
+use SleepingOwl\Models\SleepingOwlModel;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends SleepingOwlModel implements UserInterface, RemindableInterface, StaplerableInterface {
 
-    use UserTrait, RemindableTrait;
+    use UserTrait, RemindableTrait, EloquentTrait;
 
     protected $table = 'users';
     protected $hidden = array('password', 'remember_token');
-    protected $fillable = array('username', 'email', 'password');
+    protected $fillable = array('username', 'email', 'password', 'avatar');
 
     protected static $validates = [
         'username' => 'required',
@@ -19,6 +22,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'password' => 'required|min:6|confirmed',
         'password_confirmation' => 'required|min:6'
     ];
+
+    public function __construct(array $attributes = array()) {
+        $this->hasAttachedFile('avatar', [
+            'styles' => [
+                'medium' => '300x300',
+                'thumb' => '100x100'
+            ],
+            'default_url' => 'https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg'
+        ]);
+
+        parent::__construct($attributes);
+    }
 
     public function lessons()
     {
@@ -41,7 +56,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         if ($isSameEmail) {
             self::$validates['email'] = 'required|email';
-        } 
+        }
 
         return self::$validates;
     }
@@ -49,14 +64,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function isFollowing($other_id)
     {
         return $this->followings()->where('followed_id', '=', $other_id)->first();
-    }
-
-    public function getAvatar()
-    {
-        if (empty($this->avatar)) {
-            $this->avatar = 'https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg';
-        }
-
-        return $this->avatar;
     }
 }

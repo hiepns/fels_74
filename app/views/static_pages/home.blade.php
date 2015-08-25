@@ -12,8 +12,8 @@
     <div class='row'>
         <aside class='col-md-5'>
             <div class='row'>
-                <section class='col-md-5'> 
-                    {{ HTML::image(Auth::user()->getAvatar(), Auth::user()->username, ['class' => 'gravatar']) }}
+                <section class='col-md-5'>
+                    {{ HTML::image(Auth::user()->avatar->url('medium'), Auth::user()->username, ['class' => 'gravatar']) }}
                 </section>
                 <section class='col-md-7 user_info'>
                     <h1>
@@ -32,7 +32,7 @@
                     </strong>
                     followings
                 </a>
-                
+
                <a href='{{ route('users.followers.index', Auth::user()->id) }}'>
                     <strong id='followers'>
                         {{ Auth::user()->followers->count() }}

@@ -15,4 +15,5 @@
  *      });
  */
 
-Admin::menu()->url('/')->label('Start page')->icon('fa-dashboard')->uses('\SleepingOwl\Admin\Controllers\DummyController@getIndex');
+Admin::menu()->url('/')->label('Dashboard')->icon('fa-dashboard')->uses('AdministratorsController@index');
+Admin::menu('User')->icon('fa-user');
