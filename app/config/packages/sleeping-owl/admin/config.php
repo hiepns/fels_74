@@ -27,7 +27,7 @@ return [
      * Path to images directory
      * Default: 'public/images'
      */
-    'imagesDirectory'       => public_path('images'),
+    'imagesDirectory'       => public_path('system'),
 
     /*
      * Path to files directory

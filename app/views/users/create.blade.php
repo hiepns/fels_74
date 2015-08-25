@@ -5,17 +5,17 @@
 
 <div class='row'>
     <div class='col-md-6 col-md-offset-3'>
-        {{ Form::open(['route' => 'users.store']) }}
+        {{ Form::open(['route' => 'users.store', 'files' => true]) }}
             @include('shared.errors_message')
-          
+
             {{ Form::label('Username') }}
             {{ Form::text('username', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
 
             {{ Form::label('Email') }}
             {{ Form::text('email', null, ['class' => 'form-control']) }}
 
-            {{ Form::label('Avatar URL') }}
-            {{ Form::text('avatar', null, ['class' => 'form-control']) }}
+            {{ Form::label('Avatar') }}
+            {{ Form::file('avatar') }}
 
             {{ Form::label('Password') }}
             {{ Form::password('password', ['class' => 'form-control']) }}

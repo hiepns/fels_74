@@ -123,6 +123,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'SleepingOwl\Admin\AdminServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
+        'Codesleeve\LaravelStapler\Providers\L4ServiceProvider'
 
     ),
 

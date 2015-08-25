@@ -4,14 +4,14 @@ class UsersController extends \BaseController {
 
     public function index()
     {
-        
+
     }
 
     public function create()
     {
         return View::make('users.create')
             ->with('title', 'Signup');
-    }  
+    }
 
     public function store()
     {
@@ -21,14 +21,14 @@ class UsersController extends \BaseController {
             $user = new User();
             $user->username = Input::get('username');
             $user->email = Input::get('email');
-            $user->avatar = Input::get('avatar');
+            $user->avatar = Input::file('avatar');
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
             return Redirect::to('/login')
                 ->with('alert-success', 'Signup successfully!');
-        } 
-        
+        }
+
         return Redirect::route('users.create')
             ->withErrors($valid)
             ->withInput();
@@ -44,7 +44,7 @@ class UsersController extends \BaseController {
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        
+
         return View::make('users.edit')
             ->with('title', 'Edit Profile')
             ->with('user', $user);
@@ -61,17 +61,17 @@ class UsersController extends \BaseController {
             $newUserData = [
                 'username' => Input::get('username'),
                 'email' => Input::get('email'),
-                'avatar' => Input::get('avatar'),
+                'avatar' => Input::file('avatar'),
                 'password' => Hash::make(Input::get('password'))
             ];
             $user->update($newUserData);
 
             return Redirect::route('users.show', $id)
                 ->with('alert-success', 'Update profile successfully!');
-        } 
+        }
 
         return Redirect::route('users.edit', $id)
             ->withErrors($valid)
-            ->withInput();  
+            ->withInput();
     }
 }
