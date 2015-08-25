@@ -65,4 +65,12 @@ class User extends SleepingOwlModel implements UserInterface, RemindableInterfac
     {
         return $this->followings()->where('followed_id', '=', $other_id)->first();
     }
+
+    public function getLessonWords()
+    {
+        $q = $this->lessons()->lists('id');
+
+        return LessonWord::whereIn('lesson_id', $q)
+            ->lists('word_id');
+    }
 }

@@ -26,91 +26,70 @@ class AnswerTableSeeder extends Seeder {
         ]);
 
         Answer::create([
-            'content' => 'Bố',
-            'word_id' => 2,
-            'correct' => false
-        ]);
-        Answer::create([
-            'content' => 'Con',
-            'word_id' => 2,
-            'correct' => false
-        ]);
-        Answer::create([
-            'content' => 'Mẹ',
-            'word_id' => 2,
-            'correct' => true
-        ]);
-        Answer::create([
-            'content' => 'Ông',
-            'word_id' => 2,
-            'correct' => false
-        ]);
-
-        Answer::create([
             'content' => 'Hoa',
-            'word_id' => 3,
+            'word_id' => 2,
             'correct' => false
         ]);
         Answer::create([
             'content' => 'Lá',
-            'word_id' => 3,
-            'correct' => false
-        ]);
-        Answer::create([
-            'content' => 'Cành',
-            'word_id' => 3,
+            'word_id' => 2,
             'correct' => false
         ]);
         Answer::create([
             'content' => 'Cây',
+            'word_id' => 2,
+            'correct' => true
+        ]);
+        Answer::create([
+            'content' => 'Cành',
+            'word_id' => 2,
+            'correct' => false
+        ]);
+
+        Answer::create([
+            'content' => 'Trâu',
+            'word_id' => 3,
+            'correct' => false
+        ]);
+        Answer::create([
+            'content' => 'Bò',
+            'word_id' => 3,
+            'correct' => false
+        ]);
+        Answer::create([
+            'content' => 'Lợn',
+            'word_id' => 3,
+            'correct' => false
+        ]);
+        Answer::create([
+            'content' => 'Người',
             'word_id' => 3,
             'correct' => true
         ]);
 
         Answer::create([
-            'content' => 'Trâu',
-            'word_id' => 4,
-            'correct' => false
-        ]);
-        Answer::create([
-            'content' => 'Người',
-            'word_id' => 4,
-            'correct' => true
-        ]);
-        Answer::create([
-            'content' => 'Bò',
-            'word_id' => 4,
-            'correct' => false
-        ]);
-        Answer::create([
-            'content' => 'Lợn',
-            'word_id' => 4,
-            'correct' => false
-        ]);
-
-        Answer::create([
             'content' => 'Chân',
-            'word_id' => 5,
+            'word_id' => 4,
             'correct' => false
         ]);
         Answer::create([
             'content' => 'Tay',
-            'word_id' => 5,
+            'word_id' => 4,
             'correct' => true
         ]);
         Answer::create([
             'content' => 'Mũi',
-            'word_id' => 5,
+            'word_id' => 4,
             'correct' => false
         ]);
         Answer::create([
             'content' => 'Mắt',
-            'word_id' => 5,
+            'word_id' => 4,
             'correct' => false
         ]);
 
         Answer::create([
-            'content' => 'Đầu',
+            'content' => 'Tay',
             'word_id' => 5,
             'correct' => false
         ]);
@@ -127,6 +106,27 @@ class AnswerTableSeeder extends Seeder {
         Answer::create([
             'content' => 'Mắt',
             'word_id' => 5,
+            'correct' => false
+        ]);
+
+        Answer::create([
+            'content' => 'Đẹp',
+            'word_id' => 6,
+            'correct' => true
+        ]);
+        Answer::create([
+            'content' => 'Xấu',
+            'word_id' => 6,
+            'correct' => false
+        ]);
+        Answer::create([
+            'content' => 'Bẩn',
+            'word_id' => 6,
+            'correct' => false
+        ]);
+        Answer::create([
+            'content' => 'Khác',
+            'word_id' => 6,
             'correct' => false
         ]);
     }

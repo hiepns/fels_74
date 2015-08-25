@@ -24,5 +24,9 @@ class WordTableSeeder extends Seeder {
             'content' => '足',
             'category_id' => 1,
         ]);
+        Word::create([
+            'content' => 'きれい',
+            'category_id' => 1,
+        ]);
     }
 }
