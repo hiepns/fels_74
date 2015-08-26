@@ -9,4 +9,8 @@ class Category extends Eloquent {
         return $this->hasMany('Word');
     }
 
+    public function lessons()
+    {
+        return $this->hasMany('Lesson');
+    }
 }

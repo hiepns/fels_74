@@ -14,4 +14,8 @@ class Lesson extends Eloquent {
         return $this->belongsTo('Category');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }

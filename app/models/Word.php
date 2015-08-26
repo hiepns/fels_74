@@ -6,7 +6,7 @@ class Word extends Eloquent {
 
     public function answers()
     {
-        return $this->hasMany('Anser');
+        return $this->hasMany('Answer');
     }
 
     public function lessons()
@@ -19,4 +19,17 @@ class Word extends Eloquent {
         return $this->belongsTo('Category');
     }
 
+    public function scopeLearnedWords($query, $userLessonWords, $category_id)
+    {
+        return $query->whereIn('id', $userLessonWords)
+               ->where('category_id', '=', $category_id)
+               ->get();
+    }
+
+    public function scopeNotLearnedWords($query, $userLessonWords, $category_id)
+    {
+        return $query->whereNotIn('id', $userLessonWords)
+               ->where('category_id', '=', $category_id)
+               ->get();
+    }
 }

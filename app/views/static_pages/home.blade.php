@@ -43,7 +43,7 @@
         </aside>
 
         <div class='col-md-7 home_btn'>
-            <a href='#' class='btn btn-lg btn-primary'>Words</a>
+            <a href='{{ url('/word_list') }}' class='btn btn-lg btn-primary'>Words</a>
             <a href='#' class= 'btn btn-lg btn-primary'>Lesson</a>
         </div>
     </div>

@@ -6,4 +6,5 @@
         </ul>
     </nav>
     {{ HTML::script('/js/relationship.js') }}
+    {{ HTML::script('/js/wordlist.js') }}
 </footer>
