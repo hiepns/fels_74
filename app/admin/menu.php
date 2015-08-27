@@ -17,3 +17,5 @@
 
 Admin::menu()->url('/')->label('Dashboard')->icon('fa-dashboard')->uses('AdministratorsController@index');
 Admin::menu('User')->icon('fa-user');
+Admin::menu('Category')->icon('fa-folder');
+Admin::menu('Word')->icon('fa-folder');
