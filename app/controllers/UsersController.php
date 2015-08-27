@@ -2,11 +2,6 @@
 
 class UsersController extends \BaseController {
 
-    public function index()
-    {
-
-    }
-
     public function create()
     {
         return View::make('users.create')

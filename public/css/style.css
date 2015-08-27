@@ -310,12 +310,28 @@ aside span {
     font-weight: bold;
 }
 
-.btn {
-    width: 150px;
-}
-
 .home_btn {
     margin-top: 30px;
+}
+
+.start {
+    margin-top: 20px;
+    float: right;
+}
+
+.categories-lesson {
+    margin-top: 30px;
+}
+
+.categories-lesson p {
+    height: 100px;
+    width: 100%;
+    overflow-y: auto;
+    float: left;
+}
+
+.categories-lesson input[type='submit'] {
+    width: 20%;
 }
 
 #follow {
@@ -324,5 +340,46 @@ aside span {
 }
 
 #follow:hover {
-    color:#fff;
+    color: #fff;
+}
+
+.hide {
+    display: none;
+}
+
+.list-answer ul { 
+    list-style: none;
+}
+
+.list-answer li button{ 
+    min-width: 250px;
+    min-height: 40px;   
+    margin-bottom: 10px;
+}
+
+.word {
+    margin-left: 140px; 
+}
+
+.true-answer {
+    background-color: #57A957;
+    color: #fff;
+}
+
+.wrong-answer {
+    background-color: #C33030;
+    color: #fff;
+}
+
+.result {
+    line-height: 350%;
+}
+
+.lesson-form h3{
+    margin-left: 200px;
+}
+
+.lesson-form h4{
+    margin-left: 215px;
+    margin-bottom: 20px;
 }

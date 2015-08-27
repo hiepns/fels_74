@@ -6,7 +6,7 @@ class Lesson extends Eloquent {
 
     public function words()
     {
-        return $this->belongsToMany('Word', 'lesson_words');
+        return $this->belongsToMany('Word', 'lesson_words')->withTimestamps();
     }
 
     public function category()

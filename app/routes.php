@@ -7,8 +7,11 @@ Route::get('/login', ['before' => 'guest', 'uses' => 'SessionsController@create'
 Route::post('/login', ['before' => 'csrf', 'uses' => 'SessionsController@store']);
 Route::get('/logout', ['before' => 'auth', 'uses' => 'SessionsController@destroy']);
 Route::get('/word_list', ['before' => 'auth', 'uses' => 'WordListsController@index']);
+Route::get('/categories', ['before' => 'auth', 'uses' => 'CategoriesController@index']);
 
 Route::resource('users', 'UsersController');
 Route::resource('relationships', 'RelationshipsController');
 Route::resource('users.followings', 'FollowingsController');
 Route::resource('users.followers', 'FollowersController');
+Route::resource('lessons', 'LessonsController');
+Route::resource('lessons.results', 'ResultsController');
