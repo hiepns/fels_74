@@ -1,8 +1,11 @@
 <?php
 
-class Word extends Eloquent {
+use SleepingOwl\Models\SleepingOwlModel;
+
+class Word extends SleepingOwlModel {
 
     protected $table = 'words';
+    protected $fillable = ['category_id', 'content'];
 
     public function answers()
     {

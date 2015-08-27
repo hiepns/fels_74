@@ -20,3 +20,4 @@
  *          return 'My custom element code';
  *      });
  */
+Column::register('arrays', Arrays::class);
