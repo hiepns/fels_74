@@ -10,4 +10,8 @@ class Answer extends Eloquent {
         return $this->belongsTo('Word');
     }
 
+    public function scopeChosen($query, $lessonWords)
+    {
+    	return $query->whereIn('id', $lessonWords)->get();
+    }
 }

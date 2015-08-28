@@ -43,13 +43,13 @@ class User extends SleepingOwlModel implements UserInterface, RemindableInterfac
     public function followings()
     {
         return $this->belongsToMany('User', 'relationships', 'follower_id', 'followed_id')
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 
     public function followers()
     {
         return $this->belongsToMany('User', 'relationships', 'followed_id', 'follower_id')
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 
     public static function createValidator($isSameEmail = false)

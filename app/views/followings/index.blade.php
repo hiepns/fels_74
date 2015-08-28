@@ -10,7 +10,7 @@
         <ul class='users'>
             @foreach ($followings as $following)
                 <li>
-                    <img src='{{ $following->getAvatar() }}' alt='{{ $following->username }}'>
+                    {{ HTML::image($following->avatar->url('medium'), $following->username) }}
                     <a href='{{ route('users.show', $following->id) }}'>{{ $following->username }}</a>
                 </li>
             @endforeach
