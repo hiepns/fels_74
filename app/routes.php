@@ -7,6 +7,7 @@ Route::get('/login', ['before' => 'guest', 'uses' => 'SessionsController@create'
 Route::post('/login', ['before' => 'csrf', 'uses' => 'SessionsController@store']);
 Route::get('/logout', ['before' => 'auth', 'uses' => 'SessionsController@destroy']);
 Route::get('/word_list', ['before' => 'auth', 'uses' => 'WordListsController@index']);
+Route::post('/word_list', ['before' => 'auth', 'uses' => 'WordListsController@store']);
 Route::get('/categories', ['before' => 'auth', 'uses' => 'CategoriesController@index']);
 
 Route::resource('users', 'UsersController');
