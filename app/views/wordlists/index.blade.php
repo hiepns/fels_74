@@ -6,23 +6,22 @@
         <h3>Categories:</h3>
         {{ Form::select('category', $categories, null, ['class' => 'col-xs-2']) }}
 
-        <label class='radio-inline' for='learned'>
-            {{ Form::radio('choose', 'learned') }}
-            Learned
-        </label>
+        {{ Form::radio('choose', 'learned') }}
+        Learned
 
-        <label class='radio-inline' for='learned'>
-            {{ Form::radio('choose', 'not learned') }}
-            Not Learned
-        </label>
+        {{ Form::radio('choose', 'not learned') }}
+        Not Learned
 
-        <label class='radio-inline' for='learned'>
-            {{ Form::radio('choose', 'all', true) }}
-            All
-        </label>
+        {{ Form::radio('choose', 'all', true) }}
+        All
 
-        <div class="button">
-            {{ Form::button('Filter', ['class' => 'btn btn-primary', 'id' => 'filter', 'data-url' => url('/word_list')]) }}
+        <div class='button'>
+            {{ Form::button('Filter', [
+                'class' => 'btn btn-primary',
+                'id' => 'filter', 
+                'data-url' => url('/word_list')
+            ]) }}
+            
             {{ Form::button('PDF', [
                 'class' => 'btn btn-primary',
                 'id' => 'export2pdf',

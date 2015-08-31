@@ -2,17 +2,15 @@
 
 class LessonsController extends \BaseController {
 
-    const MAX_WORD = 2;
-
     public function store()
     {
         $category = Category::findOrFail(Input::get('category_id'));
         $userLessonWords = Auth::user()->getLessonWords();
         $notLearnedWords = Word::notLearnedWords($userLessonWords, $category->id);
 
-        if ($notLearnedWords->count() < self::MAX_WORD) {
+        if ($notLearnedWords->count() < Config::get('constants.MAX_WORD')) {
             return Redirect::to('/categories')
-                ->with('alert-warning', 'Not enough ' . self::MAX_WORD . ' words to start new lesson!');
+                ->with('alert-warning', 'Not enough ' . Config::get('constants.MAX_WORD') . ' words to start new lesson!');
         }
 
         $lesson = new Lesson();
@@ -20,7 +18,7 @@ class LessonsController extends \BaseController {
         $lesson->user_id = Auth::user()->id;
 
         if ($lesson->save()) {
-            $words = $notLearnedWords->random(self::MAX_WORD);
+            $words = $notLearnedWords->random(Config::get('constants.MAX_WORD'));
             foreach ($words as $word) {
                $lesson->words()->attach($word);
             }
