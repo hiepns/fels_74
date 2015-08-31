@@ -32,8 +32,10 @@ class UsersController extends \BaseController {
     public function show($id)
     {
         $user = User::findOrFail($id);
+        $activities = $user->activities()->paginate(5);
 
-        return View::make('users.show', ['title' => $user->username, 'user' => $user]);
+        return View::make('users.show', compact('user','activities'))
+            ->with('title', $user->username);
     }
 
     public function edit($id)

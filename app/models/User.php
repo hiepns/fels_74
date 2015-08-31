@@ -40,6 +40,11 @@ class User extends SleepingOwlModel implements UserInterface, RemindableInterfac
         return $this->hasMany('Lesson');
     }
 
+    public function activities()
+    {
+        return $this->hasMany('Activity');
+    }
+
     public function followings()
     {
         return $this->belongsToMany('User', 'relationships', 'follower_id', 'followed_id')
