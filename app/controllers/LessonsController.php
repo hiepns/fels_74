@@ -32,8 +32,13 @@ class LessonsController extends \BaseController {
 
     public function show($id)
     {
-        $lesson = Lesson::findOrFail($id);
+        $listAnswerIds = LessonWord::groupLesson($id);
+        if (!in_array(0, $listAnswerIds)) {
+            return Redirect::to('/categories')
+                ->with('alert-warning', 'You have finished this lesson!!!');
+        }
 
+        $lesson = Lesson::findOrFail($id);
         return View::make('lessons.show', compact('lesson'))
             ->with('title', 'Lesson '. $id);
     }

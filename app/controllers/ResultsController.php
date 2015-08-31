@@ -35,7 +35,7 @@ class ResultsController extends \BaseController {
     {
         Activity::create([
             'user_id' => Auth::user()->id,
-            'content' => 'Learned 20 words in Lesson "' . $category_name . '"'
+            'content' => 'Learned ' . Config::get('constants.MAX_WORD') . ' words in Lesson "' . $category_name . '"'
         ]);
     }
 }
