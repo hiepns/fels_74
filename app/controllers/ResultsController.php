@@ -14,6 +14,8 @@ class ResultsController extends \BaseController {
             }
         }
 
+        $this->logActivities($chosenAnswers[0]->word->category->name);
+
         return View::make('results.index', compact('score', 'chosenAnswers'))
             ->with('title', 'Result of lesson ' . $lesson_id);
     }
@@ -27,5 +29,13 @@ class ResultsController extends \BaseController {
         $lessonWord->save();
 
         return Answer::findOrFail(Input::get('answer_id'))->correct;
+    }
+
+    private function logActivities($category_name)
+    {
+        Activity::create([
+            'user_id' => Auth::user()->id,
+            'content' => 'Learned 20 words in Lesson "' . $category_name . '"'
+        ]);
     }
 }

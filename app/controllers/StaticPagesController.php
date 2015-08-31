@@ -4,6 +4,13 @@ class StaticPagesController extends \BaseController {
 
     public function home()
     {
+        if (Auth::check()) {
+            $activities = Auth::user()->activities()->paginate(5);
+
+            return View::make('static_pages.home', compact('activities'))
+                ->with('title', 'E-Learning System');
+        }
+
         return View::make('static_pages.home')
             ->with('title', 'E-Learning System');
     }
