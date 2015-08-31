@@ -1,4 +1,4 @@
-$('#filter').click(function(){ 
+$('#filter').click(function () {
     var option = $('input[type="radio"]:checked').val();
     var category_id = $('select[name="category"]').val();
 
@@ -8,10 +8,11 @@ $('#filter').click(function(){
         dataType: 'html',
         data: {
             'option': option,
-            'category_id': category_id 
+            'category_id': category_id
         },
-        success: function(data) {
+        success: function (data) {
             $("#word-list").html(data);
+            $('#export2pdf').css('display', 'initial');
         }
     });
 });
@@ -32,9 +33,9 @@ $(".answer").on("click", function() {
                 $('#choice'+num).addClass('true-answer');
             } else {
                 $('#choice'+num).addClass('wrong-answer');
-            }  
+            }
 
-            num++;          
+            num++;
             if (num == total_words) {
                 setTimeout(function () {
                     window.location.href = result_url;
@@ -46,9 +47,26 @@ $(".answer").on("click", function() {
             }, 600);
         }
     });
-}); 
+});
 
 function next(num) {
     $("#word-" + num).addClass('hide');
     $("#word-" + (num + 1)).removeClass('hide');
 }
+
+$('#export2pdf').click(function () {
+    var _option = $('input[type="radio"]:checked').val();
+    var _category_id = $('select[name="category"]').val();
+    // $.post($('#export2pdf').data('url'), {data:$('#word-list').html()});
+    $.redirectPost($('#export2pdf').data('url'), {option: _option, category_id: _category_id});
+});
+
+$.extend({
+    redirectPost: function(location, args) {
+        var form = '';
+        $.each( args, function( key, value ) {
+            form += '<input type="hidden" name="'+key+'" value="'+value+'">';
+        });
+        $('<form action="'+location+'" method="POST">'+form+'</form>').appendTo('body').submit();
+    }
+});

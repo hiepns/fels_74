@@ -124,7 +124,8 @@ return array(
         'SleepingOwl\Admin\AdminServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Codesleeve\LaravelStapler\Providers\L4ServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Barryvdh\DomPDF\ServiceProvider',
 
     ),
 
@@ -199,6 +200,8 @@ return array(
         'Column'            => 'SleepingOwl\Admin\Columns\Column',
         'FormItem'          => 'SleepingOwl\Admin\Models\Form\FormItem',
         'ModelItem'         => 'SleepingOwl\Admin\Models\ModelItem',
+        'PDF' => 'Barryvdh\DomPDF\Facade',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
     ),
 
