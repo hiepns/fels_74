@@ -11,7 +11,7 @@
             <div id='word-{{ $index }}' class='row hide'>
         @endif
             <div>
-                <h4>{{ $index + 1 }}/20</h4>
+                <h4>{{ $index + 1 }}/{{ $lesson->words()->count() }}</h4>
             </div>
             <div class='col-md-4 word'>
                 <h1>{{ $word->content }}</h1>
