@@ -14,7 +14,8 @@
                 <h4>{{ $index + 1 }}/{{ $lesson->words()->count() }}</h4>
             </div>
             <div class='col-md-4 word'>
-                <h1>{{ $word->content }}</h1>
+                <h1 id='nihon'>{{ $word->content }}</h1>
+                {{ Form::button('<span class="glyphicon glyphicon-bullhorn"></span> Speak', ['class' => 'btn btn-primary btn-sm center-block speak']) }}
             </div>
             <div class='col-md-5 list-answer'>
                 <ul>
@@ -39,4 +40,6 @@
     var total_words = {{ $lesson->words()->count() }};
     var result_url = '{{ route('lessons.results.index', $lesson->id) }}';
 </script>
+{{ HTML::script('http://code.responsivevoice.org/responsivevoice.js') }}
+{{ HTML::script('/js/lessons.js') }}
 @stop
