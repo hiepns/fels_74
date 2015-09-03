@@ -20,7 +20,7 @@
                         <span class='glyphicon glyphicon-remove'></span>
                     @endif
                 </div>
-                <div class='col-md-6'>
+                <div class='col-md-6 nihon'>
                     {{ $answer->word->content }}
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     {{ $answer->content }}
                 </div>
                 <div class = 'col-md-6'>
-                    <a class='btn btn-primary btn-sm'>
+                    <a class='btn btn-primary btn-sm speak'>
                         <span class='glyphicon glyphicon-bullhorn'></span> 
                         Speak
                     </a>
@@ -38,5 +38,6 @@
         </div>
     @endforeach
 </div>
-
+{{ HTML::script('http://code.responsivevoice.org/responsivevoice.js') }}
+{{ HTML::script('/js/results.js') }}
 @stop
