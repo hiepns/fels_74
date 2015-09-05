@@ -40,6 +40,9 @@ class Arrays extends BaseColumn {
     public function render($instance, $totalCount, $content = null)
     {
         $list = $this->valueFromInstance($instance, $this->name);
+        if ($list == null) {
+            return;
+        }
         if ($this->trueAns) {
             for ($i = 0; $i < count($list); $i++) {
                 if ($list[$i] == 1) {

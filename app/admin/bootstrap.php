@@ -21,3 +21,8 @@
  *      });
  */
 Column::register('arrays', Arrays::class);
+AdminRouter::post('words', 'AdministratorsController@store');
+AdminRouter::delete('words/{id}', 'AdministratorsController@destroy');
+AdminRouter::put('words/{id}/update', 'AdministratorsController@update');
+FormItem::register('textNestedItem', TextNestedItem::class);
+FormItem::register('selectNestedItem', SelectNestedItem::class);

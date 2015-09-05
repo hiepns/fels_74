@@ -24,7 +24,10 @@
             "app/database/migrations",
             "app/database/seeds",
             "app/tests/TestCase.php",
-            "app/admin/column/Arrays.php"
+            "app/admin/column/Arrays.php",
+            "app/admin/form/BaseItem.php",
+            "app/admin/form/TextNestedItem.php",
+            "app/admin/form/SelectNestedItem.php"
         ]
     },
     "scripts": {
